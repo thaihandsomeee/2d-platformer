@@ -14,6 +14,11 @@ public class ItemCollector : MonoBehaviour
             SoundManager.Instance.PlayCollectedSound();
             Destroy(collision.gameObject);
             count++;
+
+            //Xu ly luu diem vao bo nho
+            Prefs.currentScore = count;
+            if (count > Prefs.bestScore) Prefs.bestScore = count;
+            
             itemText.text = "" + count;
         }
     }
